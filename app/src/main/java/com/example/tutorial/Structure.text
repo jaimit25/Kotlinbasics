@@ -1,0 +1,23 @@
+MainActivity2 contains the Dagger2 implementation
+
+Annotations used  : @Inject,@Provides,@Module,@Component
+
+@Inject can be used in two ways for
+1)providing dependency(object) to consumer via Component.
+2) or Directly inject the object to the fields/variables were @Inject is used.
+
+@Component Module is an Interface which has detail about the dependency function but does not contain the Body
+1) It is use to pass the data from Dependency(producer) to the (consumer).
+2) It has two types create getter for dependency manually or directly mention the consumer so it will get the objects/dependency.
+
+@Provides and @Module : Used together when we have an interface(producer) which has multiple implementation(notificationService : message and email) and we have to return only 1 specific dependency
+1) @Module will specify that the class is Module and the class will serve/provide the object/dependency of anyone specific dependency which is pointed or returned by the @Provides annotation function.
+2) function with the @Provides annotation will inherit the interface and return the dependency/object for the kind they want ie. firebaseUserRepo.
+
+
+
+
+
+
+
+

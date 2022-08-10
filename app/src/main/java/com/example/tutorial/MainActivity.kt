@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var toast : Toast
     lateinit var toast2 : Toast
     lateinit var textView : TextView
+    lateinit var savebtn : Button
     lateinit var startbtn : Button
     lateinit var stopBtn : Button
 
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         //initializing display view
         textView =  findViewById(R.id.title_page);
-        startbtn=  findViewById(R.id.start);
+        savebtn=  findViewById(R.id.save);
         stopBtn = findViewById(R.id.stop);
 
         //initializing toast
@@ -71,10 +72,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         //reacting to events
-        startbtn.setOnClickListener(View.OnClickListener {
+        savebtn.setOnClickListener(View.OnClickListener {
             //it will send data in bundle as well to different page
             startActivity(intent)
-            finish()
+
+            //this will destory the current activity and it will no longer be in the memory stack
+            //finish()
         });
     }
 

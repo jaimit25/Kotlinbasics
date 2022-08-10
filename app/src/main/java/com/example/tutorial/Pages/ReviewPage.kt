@@ -53,4 +53,11 @@ class ReviewPage : AppCompatActivity() {
             textView_name.setText("name is null")
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        //this will destroy the activity
+        finish()
+    }
+
 }

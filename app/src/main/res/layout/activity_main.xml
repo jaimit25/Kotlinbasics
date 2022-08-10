@@ -33,15 +33,27 @@
 
 
     <Button
+        android:id="@+id/save"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="#fff"
+        android:text="Save Data"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/roundedbutton"
+        android:layout_marginHorizontal="10dp"
+        android:textSize="13dp"
+        />
+
+    <Button
         android:id="@+id/start"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textColor="#fff"
         android:text="Start background service"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/roundedbutton"
         android:layout_marginHorizontal="10dp"
         android:textSize="13dp"
+        android:layout_marginBottom="20dp"
         />
 
     <Button
