@@ -1,8 +1,13 @@
 package com.example.tutorial
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings.Global.putString
+import android.telephony.TelephonyManager
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
@@ -49,12 +54,20 @@ class MainActivity : AppCompatActivity() {
 
         //using timer
         Timer().schedule(5000) {
-
             //displaying toast
             toast.show();
 
             //making visibility off
             textView.visibility = TextView.INVISIBLE;
+
+            //updating the UI on different thread leads to the error so we need to update it on the mainUI thread using runOnUiThread function
+            runOnUiThread(Runnable {
+                textView.text = "Welcome".toString()
+                textView.visibility = TextView.VISIBLE;
+
+            //store User Details in shared prefs background
+                saveData()
+            })
         }
 
         //reacting to events
@@ -63,16 +76,33 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         });
-
-
-
-
     }
+
+
+    //shared preferences
+    private fun saveData(){
+        //we will need shared prefrences variable and an editor which will edit things
+         val prefs : SharedPreferences = getSharedPreferences("sharedPrefs",Context.MODE_PRIVATE)
+         val editor : SharedPreferences.Editor = prefs.edit()
+        editor.apply{
+            putString("phone",getNum().toString())
+        }.apply()
+    }
+
+
+    //get User Phone Number
+    fun getNum() : Int{
+        return 123;
+    }
+
     // overiding backbutton
     override fun onBackPressed() {
         super.onBackPressed()
         toast2.show()
     }
+
+
+
 
 
 }
