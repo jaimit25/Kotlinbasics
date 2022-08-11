@@ -32,7 +32,7 @@ import dagger.Component
 interface userRegistrationComponent {
 
     //Approach 3,4,5 : if we have Multiple dependencies then this approach of creating manually is not good so we can use this (name could be any injectDepen...)
-    //Approach 4 suppose we have have to send message and not email so we will use interface NotificationService and also we will create object of that class
+    //Approach 4,5 suppose we have have to send message and not email so we will use interface NotificationService and also we will create object of that class
 
     fun injectDep(mainActivity2: MainActivity2) // mainActivity2 is our consumer , also above 2 method we can comment or remove
 

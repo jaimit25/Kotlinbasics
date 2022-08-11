@@ -16,7 +16,7 @@ import javax.inject.Inject
 interface UserRepository {
     fun saveUser( email:String , password : String)
 }
-
+//Approach 3
 class SQLRepository @Inject constructor() : UserRepository {
     override fun saveUser( email:String , password : String){
         Log.d("tutorial","user saved to SQL Database")
